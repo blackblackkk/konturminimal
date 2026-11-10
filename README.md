@@ -104,6 +104,21 @@ export const contacts = {
 Файл `vercel.json` направляет все адреса на `index.html`, поэтому страница
 `/privacy` открывается и по прямой ссылке, и после обновления.
 
+## Публикация на GitHub Pages
+
+Файл `.github/workflows/deploy.yml` собирает сайт и публикует его при каждой
+отправке в ветку `main`.
+
+1. Один раз включите Pages: в репозитории Settings → Pages → Source → **GitHub Actions**.
+2. Запустите публикацию: вкладка Actions → «Публикация на GitHub Pages» → Run workflow
+   (или просто отправьте новый коммит в `main`).
+3. Чтобы заработала форма, добавьте адрес Formspree: Settings → Secrets and variables →
+   Actions → вкладка Variables → `VITE_FORMSPREE_ENDPOINT`, затем запустите публикацию снова.
+
+Сайт откроется по адресу `https://<имя-аккаунта>.github.io/<имя-репозитория>/`.
+Подпапка и адрес для `sitemap.xml` подставляются автоматически, в том числе
+после подключения собственного домена в настройках Pages.
+
 ### Адрес сайта, sitemap.xml и robots.txt
 
 `robots.txt` и `sitemap.xml` создаются при сборке. Для карты сайта нужен адрес:

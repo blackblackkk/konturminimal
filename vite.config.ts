@@ -19,13 +19,13 @@ function resolveSiteUrl(env: Record<string, string>): string {
   return raw.replace(/\/+$/, '');
 }
 
-function seoFiles(siteUrl: string): Plugin {
+function seoFiles(siteUrl: string, base: string): Plugin {
   return {
     name: 'kontur-seo-files',
     apply: 'build',
 
     transformIndexHtml() {
-      const image = `${siteUrl}/assets/og.png`;
+      const image = siteUrl ? `${siteUrl}/assets/og.png` : `${base}assets/og.png`;
       const tags = [
         { tag: 'meta', attrs: { property: 'og:image', content: image }, injectTo: 'head' as const },
       ];
@@ -67,7 +67,12 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   const siteUrl = resolveSiteUrl(env);
 
+  // Подпапка сайта: «/» для собственного домена и Vercel,
+  // «/имя-репозитория/» для GitHub Pages (задаётся в workflow).
+  const base = `/${(env.VITE_BASE ?? '').replace(/^\/+|\/+$/g, '')}/`.replace(/\/+/g, '/');
+
   return {
-    plugins: [react(), seoFiles(siteUrl)],
+    base,
+    plugins: [react(), seoFiles(siteUrl, base)],
   };
 });

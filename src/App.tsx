@@ -7,13 +7,14 @@ import Services from './sections/Services';
 import Approach from './sections/Approach';
 import Contacts from './sections/Contacts';
 import Privacy from './pages/Privacy';
+import { url } from './config/site';
 
 /**
  * На сайте две страницы, поэтому отдельная библиотека маршрутизации не нужна:
  * страница выбирается по адресу, а переходы между ними — обычные ссылки.
  */
 function isPrivacyPage(): boolean {
-  return window.location.pathname.replace(/\/+$/, '') === '/privacy';
+  return window.location.pathname.replace(/\/+$/, '') === url('privacy');
 }
 
 export default function App() {

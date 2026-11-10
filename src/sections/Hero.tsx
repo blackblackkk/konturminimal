@@ -1,3 +1,5 @@
+import { url } from '../config/site';
+
 export default function Hero() {
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
@@ -5,8 +7,8 @@ export default function Hero() {
         <div className="hero__stage">
           <img
             className="hero__logo"
-            src="/assets/logo.png"
-            srcSet="/assets/logo-480.png 480w, /assets/logo.png 1600w"
+            src={url('assets/logo.png')}
+            srcSet={`${url('assets/logo-480.png')} 480w, ${url('assets/logo.png')} 1600w`}
             sizes="(max-width: 720px) 84vw, (max-width: 1320px) 50vw, 660px"
             width={1600}
             height={495}

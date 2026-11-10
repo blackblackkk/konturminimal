@@ -1,5 +1,6 @@
 import { useId, useState, type FormEvent } from 'react';
 import { contacts } from '../config/contacts';
+import { url } from '../config/site';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 type FieldName = 'name' | 'contact' | 'message';
@@ -177,7 +178,7 @@ export default function ContactForm() {
         </button>
         <p className="form__legal">
           Отправляя сообщение, вы соглашаетесь с{' '}
-          <a href="/privacy">политикой конфиденциальности</a>.
+          <a href={url('privacy')}>политикой конфиденциальности</a>.
         </p>
       </div>
     </form>

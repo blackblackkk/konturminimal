@@ -1,4 +1,5 @@
 import { useEffect, type ReactNode } from 'react';
+import { BASE } from '../config/site';
 
 /** Заметно выделенное место для данных, которые должна вписать компания. */
 function Blank({ children }: { children: ReactNode }) {
@@ -149,7 +150,7 @@ export default function Privacy() {
         </div>
 
         <p className="privacy__back">
-          <a className="text-link" href="/">
+          <a className="text-link" href={BASE}>
             Вернуться на главную
           </a>
         </p>

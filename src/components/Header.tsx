@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BASE, url } from '../config/site';
 
 interface HeaderProps {
   /** true — главная страница: ссылки ведут к якорям без перезагрузки */
@@ -13,7 +14,7 @@ const NAV = [
 
 export default function Header({ home }: HeaderProps) {
   const [open, setOpen] = useState(false);
-  const base = home ? '' : '/';
+  const base = home ? '' : BASE;
 
   useEffect(() => {
     if (!open) return;
@@ -44,11 +45,11 @@ export default function Header({ home }: HeaderProps) {
       <div className="container header__inner">
         <a
           className="header__logo"
-          href={home ? '#top' : '/'}
+          href={home ? '#top' : BASE}
           aria-label="КОНТУР ГЛАВНОЕ — на главную"
           onClick={close}
         >
-          <img src="/assets/logo-480.png" width={480} height={149} alt="" />
+          <img src={url('assets/logo-480.png')} width={480} height={149} alt="" />
         </a>
 
         <nav className="header__nav" aria-label="Основная навигация">

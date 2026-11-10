@@ -1,4 +1,5 @@
 import { getContactItems } from '../config/contacts';
+import { BASE, url } from '../config/site';
 
 interface FooterProps {
   home: boolean;
@@ -15,11 +16,11 @@ export default function Footer({ home }: FooterProps) {
           <div className="footer__brand">
             <a
               className="footer__logo"
-              href={home ? '#top' : '/'}
+              href={home ? '#top' : BASE}
               aria-label="КОНТУР ГЛАВНОЕ — на главную"
             >
               <img
-                src="/assets/logo-480.png"
+                src={url('assets/logo-480.png')}
                 width={480}
                 height={149}
                 alt="КОНТУР ГЛАВНОЕ"
@@ -48,7 +49,7 @@ export default function Footer({ home }: FooterProps) {
 
         <div className="footer__bottom">
           <p>© {year} КОНТУР ГЛАВНОЕ</p>
-          <a href="/privacy">Политика конфиденциальности</a>
+          <a href={url('privacy')}>Политика конфиденциальности</a>
         </div>
       </div>
     </footer>
