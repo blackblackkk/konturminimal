@@ -23,9 +23,19 @@ export default function Hero() {
             <span className="hero__name">КОНТУР ГЛАВНОЕ</span>
             <span className="hero__claim">Рекламное агентство полного цикла.</span>
           </h1>
-          <p className="hero__text">
-            Комплексные решения в области рекламы, маркетинга, дизайна и развития бизнеса.
-          </p>
+          <div className="hero__aside">
+            <p className="hero__text">
+              Комплексные решения в области рекламы, маркетинга, дизайна и развития бизнеса.
+            </p>
+            <a className="button button--light button--arrow hero__cta" href="#contacts">
+              <span className="button__label">Связаться с нами</span>
+              <span className="button__arrow" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="20" height="20" fill="none">
+                  <path d="M3 10h13M11 4.5 16.5 10 11 15.5" stroke="currentColor" strokeWidth="1.25" />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

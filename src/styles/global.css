@@ -286,6 +286,42 @@ textarea {
   }
 }
 
+/* Кнопка со стрелкой: подпись и стрелка разделены тонкой линией */
+.button--arrow {
+  justify-content: space-between;
+  min-height: 60px;
+  padding: 0;
+  font-size: 15px;
+}
+
+.button__label {
+  padding: 0 32px 0 28px;
+}
+
+.button__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  width: 60px;
+  border-left: 1px solid rgba(5, 5, 5, 0.16);
+  transition: border-color 0.2s var(--ease);
+}
+
+.button__arrow svg {
+  transition: transform 0.25s var(--ease);
+}
+
+@media (hover: hover) {
+  .button--arrow:hover .button__arrow {
+    border-left-color: rgba(255, 255, 255, 0.34);
+  }
+
+  .button--arrow:hover .button__arrow svg {
+    transform: translateX(4px);
+  }
+}
+
 .button:disabled {
   opacity: 0.38;
   cursor: not-allowed;
@@ -534,9 +570,15 @@ textarea {
   text-wrap: balance;
 }
 
-.hero__text {
-  max-width: 420px;
+.hero__aside {
+  display: grid;
+  row-gap: 28px;
+  justify-items: start;
   justify-self: end;
+  max-width: 420px;
+}
+
+.hero__text {
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-dark-soft);
@@ -560,7 +602,7 @@ textarea {
   .hero__base {
     grid-template-columns: 1fr;
     row-gap: 18px;
-    padding-block: 28px 44px;
+    padding-block: 28px 36px;
   }
 
   .hero__name {
@@ -568,9 +610,18 @@ textarea {
     font-size: 11px;
   }
 
+  .hero__aside {
+    justify-self: stretch;
+    row-gap: 24px;
+    max-width: none;
+  }
+
   .hero__text {
-    justify-self: start;
     font-size: 15px;
+  }
+
+  .hero__cta {
+    width: 100%;
   }
 }
 
